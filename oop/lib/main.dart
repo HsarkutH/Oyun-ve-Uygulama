@@ -6,12 +6,19 @@ void main() {
   student.createStudent();
   print(student.getName);
   student.setName = "Hatice";
-  print(student.getName);
+  student.takesClass(1);
+  print("Hatice \n Çankaya");
 }
 
-class Student {
+class Student extends School {
   String name;
   int note;
+
+  @override
+  takesClass(int i) {
+    // TODO: implement takesClass
+    return super.takesClass(i);
+  }
 
   String get getName => name;
   String get getNote => note.toString();
@@ -36,5 +43,13 @@ class Student {
 
   createStudent() {
     print("${this.name} ${this.note}");
+  }
+}
+
+abstract class School {
+  List<String> classes = ['Math', 'Physics', 'Chemistry'];
+
+  takesClass(int i) {
+    print(classes[i]);
   }
 }
